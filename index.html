@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="Neighborhood Map Project" content="Map of Dominican Republic">
+    <meta name="La Vega" content="SitePoint">
+
+    <title>La Vega Domincan Republic - Neighborhood Map Project</title>
+
+    <!-- Bootstrap 4 CSS(CDN) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <main class="col p-0 navbar-inverse">
+                <a href class="float-right m-3 navbar-light" data-target="#sidebar" data-toggle="collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </a>
+                <div class="content bg-primary">
+                    <!-- Map Content -->
+                    <div id="map">
+                        <!-- Map -->
+                        <p class="map_error"></p>
+                    </div>
+                </div>
+            </main>
+            <nav class="col-2 collapse bg-primary pt-2 h-100 sidebar_width" id="sidebar">
+                <h4 class="app_title text-white">Neighborhood Map</h4>
+                <!-- Search Input -->
+                <input class="search form-control mr-sm-2" data-bind="textInput: searchOption, valueUpdate: 'afterkeydown'" placeholder="Search Locations...">
+                <hr class="sidebar_hr">
+                <ul class="nav flex-column" data-bind="foreach: myLocationsFilter">
+                    <a href="#"><li class="nav-item text-white location_list" data-bind="text: title, click: $parent.populateAndBounceMarker"></li></a>
+                </ul>
+                <p class="foursquare">Powered By:
+                    <img src="img/logo_foursquare.png" alt="Foursquare!">
+                </p>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/knockout-3.4.2.js" charset="utf-8">
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+    </script>
+
+    <script src="js/markers.js" charset="utf-8">
+    </script>
+
+    <script src="js/styles.js" charset="utf-8">
+    </script>
+
+    <script src="js/app.js" charset="utf-8">
+    </script>
+
+    <script src="js/manipulation.js" charset="utf-8">
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCvishGkLXaVhKoQxcOg6HdvsgR9Gq0lSI&callback=startApp"
+        onerror="googleError()">
+    </script>
+</body>
+</html>
